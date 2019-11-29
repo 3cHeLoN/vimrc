@@ -1,0 +1,39 @@
+syntax on
+
+set background=light
+"" enable colors in terminals not 'xterm'
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+
+set shiftwidth=4
+set tabstop=4
+set autoindent
+set smartindent
+set pastetoggle=<F12>
+set smarttab
+set expandtab
+set softtabstop=4
+set encoding=utf-8
+
+set lazyredraw
+set ttyfast
+
+" custom indentation level
+autocmd FileType tex setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+"
+" Make sure the current directory corresponds to the current file
+autocmd BufEnter * lcd %:p:h
+
+" Fixes for tmux
+set ttimeoutlen=100
+set ttymouse=sgr
+set mouse=a
+
+" Run python code from vim
+noremap <F9> :!python %<cr>
+
+" Auto-apply vimrc after write
+autocmd BufWritePost _vimrc source %
+autocmd BufWritePost .vimrc source %
