@@ -17,6 +17,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'tell-k/vim-autopep8'
+Plug 'ctrlpvim/ctrlp.vim'
+
 
 " File navigation
 Plug 'yegappan/mru'
@@ -26,14 +30,12 @@ Plug 'jlanzarotta/bufexplorer'
 " Themes and visuals
 Plug 'dracula/vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
-colorscheme dracula
 let g:solarized_term_colors=256
-"set bg=light
+set bg=light
+colorscheme solarized
 
 syntax on
 
@@ -46,9 +48,6 @@ au BufNewFile,BufRead *.cu set ft=cu
 set smarttab
 set expandtab
 set softtabstop=4
-
-" Highlight current line
-set cursorline
 
 " spell checking
 " only enable for certain file types
@@ -66,9 +65,6 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
 set csto=1
 
-" line numbers
-set number
-
 " auto close NERDTree
 let NERDTreeQuitOnOpen=1
 
@@ -85,7 +81,7 @@ nnoremap <leader>lv :!evince %:r.pdf 2>/dev/null &<CR><CR>
 if has("gui_running")
     "set guifont=Source\ Code\ Pro\ Regular\ 11
     "set guifont=Roboto\ Mono\ for\ Powerline\ Regular\ 11
-    set guifont=Hack\ 11
+    set guifont=Hack\ 12
 endif
 
 set encoding=utf-8
